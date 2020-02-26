@@ -21,6 +21,15 @@ RUN git clone git://github.com/pezmaster31/bamtools.git \
 &&  cmake -DCMAKE_INSTALL_PREFIX=/opt/bamtools/bin .. \
 &&  make \
 &&  cd ../..
-ENV PATH="/opt/bedtools/bin/:${PATH}"
-CMD ["bedtools"]
+
+RUN curl -O http://cf.10xgenomics.com/supp/cell-exp/refdata-cellranger-GRCh38-3.0.0.tar.gz -o /opt/cellranger-3.0.0.tar.gz
+
+RUN \
+  cd /opt && \
+  tar -xzvf cellranger-3.0.0.tar.gz && \
+  export PATH=/opt/bedtools/bin/:/opt/cellranger-3.0.0:$PATH && \
+  ln -s /opt/cellranger-3.0.0/cellranger /usr/bin/cellranger && \
+  rm -rf /opt/cellranger-3.0.0.tar.gz
+
+CMD ["cellranger"]
 
