@@ -27,7 +27,7 @@ RUN curl http://cf.10xgenomics.com/supp/cell-exp/refdata-cellranger-GRCh38-3.0.0
 RUN \
   cd /opt && \
   ls && \
-  tar -xzvf /opt/cellranger-3.0.0.tar.gz && \
+  tar -xzvf --exclude=*.fa /opt/cellranger-3.0.0.tar.gz && \
   export PATH=/opt/bedtools/bin/:/opt/cellranger-3.0.0:$PATH && \
   ln -s /opt/cellranger-3.0.0/cellranger /usr/bin/cellranger && \
   rm -rf /opt/cellranger-3.0.0.tar.gz
