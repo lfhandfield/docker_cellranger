@@ -25,7 +25,7 @@ RUN git clone git://github.com/pezmaster31/bamtools.git \
 RUN curl http://cf.10xgenomics.com/supp/cell-exp/refdata-cellranger-GRCh38-3.0.0.tar.gz -o /opt/cellranger-3.0.0.tar.gz
 
 RUN cd /opt && ls \
-&& tar -xzvf cellranger-3.0.0.tar.gz --exclude=*.fa --exclude=*.gtf  \
+&& tar -xzvf cellranger-3.0.0.tar.gz --exclude=refdata-cellranger-GRCh38-3.0.0/* --exclude=*.fa --exclude=*.gtf  \
 && export PATH=/opt/bedtools/bin/:/opt/cellranger-3.0.0:$PATH \
 && ln -s /opt/cellranger-3.0.0/cellranger /usr/bin/cellranger \
 && rm -rf /opt/cellranger-3.0.0.tar.gz
