@@ -4,7 +4,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update 
 RUN apt-get -y install build-essential git-all wget
 RUN apt-get -y install zlib1g zlib1g-dev libbz2-1.0 libbz2-dev liblzma-dev
-RUN apt-get -y install python-numpy python-scipy 
+RUN apt-get -y install python-numpy python-scipy golang-1.11-go
+RUN pip install docopt==0.6.1
 WORKDIR /opt/
 RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.28.0/bedtools-2.28.0.tar.gz \
 &&  tar -zxvf bedtools-2.28.0.tar.gz \
