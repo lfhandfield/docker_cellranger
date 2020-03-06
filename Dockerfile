@@ -16,7 +16,7 @@ RUN git clone git://github.com/samtools/htslib.git \
 &&  git clone git://github.com/samtools/bcftools.git \
 &&  make -C bcftools \
 &&  git clone git://github.com/samtools/samtools.git \
-&&  cd bamtools && ./configure && make && make install && cd ..
+&&  cd samtools && ./configure && make && make install && cd ..
 RUN git clone git://github.com/pezmaster31/bamtools.git \
 &&  cd bamtools &&  mkdir build &&  mkdir bin \
 &&  cd build \
