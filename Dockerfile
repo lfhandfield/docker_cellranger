@@ -3,16 +3,15 @@ FROM debian:bullseye-slim
 # Install Chrome
 RUN apt-get update && apt-get install -y \
 	apt-transport-https \
+	openssh-server \
 	ca-certificates \
-	curl \
-	gnupg \
+	curl gnupg vim \
 	hicolor-icon-theme \
 	libcanberra-gtk* \
 	libgl1-mesa-dri \
 	libgl1-mesa-glx \
 	libpangox-1.0-0 \
-	libpulse0 \
-	libv4l-0 \
+	libpulse0 libv4l-0 \
 	fonts-symbola \
 	--no-install-recommends \
 	&& curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
